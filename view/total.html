@@ -1,0 +1,63 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>测试结果 - 在线测试系统</title>
+<link rel="stylesheet" href="css/style.css">
+<script src="js/jquery.min.js"></script>
+</head>
+<body>
+	<div class="top">
+		<div class="top-title">CSMP在线测试系统 - 测试结果</div>
+	</div>
+	<div class="main">
+		<div class="main-wrap">
+			<div class="main-title center" style="margin-left: 0">
+				<form class="ser" action="manage.php" method="post" id="ser_from">
+					<div class="ser-bot" onclick='doSubmitForm()'>搜索</div>
+
+					<div class="ser-box"><input type="text" name="key" id="key"  placeholder="请输入查询的用户名" onfocus="this.placeholder=''" onblur="this.placeholder='请输入查询的用户名'"></div>
+					
+						
+				</form>
+			</div>
+			<!--<div class="main-title center"><?=$k_name?>您的成绩：<?=$result_c?>分</div>-->
+			<table class="total-table"style="margin-top: 20px">
+				<tr><th>姓名</th><th>C</th><th>S</th><th>M</th><th>P</th><th>提交时间</th></tr>
+				<!-- 循环输出各题型结果 -->
+				<?php foreach($data as $type=>$each): ?>
+						
+						<tr>
+							<!-- 姓名 -->
+							<td><?=$each['name']?></td>
+							<!-- C -->
+							<td><?=$each['score_c']?></td>
+							<!-- s -->
+							<td><?=$each['score_s']?></td>
+							<!-- m -->
+							<td><?=$each['score_m']?></td>
+							<!-- p -->
+							<td><?=$each['score_p']?></td>
+							<!-- 提交时间 -->
+							<td><?=$each['sub_time']?></td>
+						</tr>
+						
+				<?php endforeach; ?>
+			</table>
+			<div class="total-act">
+				<a href="./admin.php">返回登录</a>
+			</div>
+		</div>
+	</div>
+	<div class="footer">
+		CSMP性格测试　本项目仅供内部使用
+	</div>
+	<script type="text/javascript">
+		function doSubmitForm(){
+			var form = document.getElementById("ser_from");
+    		form.submit();//form表单提交
+		}
+	</script>
+</body>
+</html>

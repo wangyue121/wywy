@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>首页 - 在线测试</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+	<div class="top">
+		<div class="top-title">在线测试</div>
+		<div class="ma_log"><a href="admin.php" target="_black">管理员登录</a></div>
+	</div>
+	<div class="main">
+		<div class="main-wrap">
+			<div class="main-title">请选择题库</div>
+			<?php foreach($info as $k=>$v): ?>
+				<div class="main-each">
+					<div class="main-each-L"><?=$v['title']?></div>
+					<div class="main-each-R">
+						<span>测试时间：<?=$v['time']?>分钟</span><a href="login.php?id=<?=$k?>">开始测试</a>
+					</div>
+				</div>
+			<?php endforeach; ?>
+		</div>
+	</div>
+	<div class="footer">
+		CSMP性格测试　本项目仅供内部使用
+	</div>
+</body>
+</html>
